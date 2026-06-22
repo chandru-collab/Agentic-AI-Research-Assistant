@@ -1,0 +1,33 @@
+# Core Backend
+fastapi[standard]>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+python-dotenv>=1.0
+python-multipart>=0.0.9
+
+# LangGraph & LangChain
+langgraph>=0.4
+langchain-core>=0.3
+langchain-community>=0.3
+langchain-openai>=0.3
+
+# HTTP Client
+httpx>=0.27
+
+# Search Tools
+duckduckgo-search>=7.0
+wikipedia>=1.4
+
+# Frontend
+streamlit>=1.40
+
+# Export
+fpdf2>=2.8
+Pillow>=10.0
+
+# Resilience
+tenacity>=9.0
+
+# Testing
+pytest>=8.0
+pytest-asyncio>=0.24
