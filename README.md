@@ -37,7 +37,7 @@ User → Streamlit UI → FastAPI Backend → LangGraph Workflow
                     ↓
               Research Agent (DuckDuckGo + Wikipedia)
                     ↓
-              Analysis Agent (+ NVIDIA Vision Reranker)
+              Analysis Agent 
                     ↓
               Summary Agent
                     ↓
