@@ -21,8 +21,6 @@ def _search_duckduckgo_sync(
     max_results: int = 10,
 ) -> list[dict]:
     try:
-        from duckduckgo_search import DDGS
-
         results = []
         with DDGS() as ddgs:
             search_results = ddgs.text(
@@ -63,8 +61,6 @@ def _search_wikipedia_sync(
     sentences: int = 10,
 ) -> list[dict]:
     try:
-        import wikipedia
-
         results = []
         # Search for relevant article titles
         search_titles = wikipedia.search(query, results=max_results)
