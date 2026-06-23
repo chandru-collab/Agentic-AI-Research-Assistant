@@ -1,6 +1,6 @@
 # 🔬 Agentic AI Research Assistant
 
-A production-ready, multi-agent research assistant powered by **LangGraph**, **FastAPI**, and **Streamlit**. Enter any research topic and the system will autonomously plan, search, analyze, summarize, and generate a comprehensive report with citations.
+A production-ready, multi-agent research assistant powered by **LangGraph**, **FastAPI**, and **React + Vite**. Enter any research topic and the system will autonomously plan, search, analyze, summarize, and generate a comprehensive report with citations.
 
 ---
 
@@ -19,7 +19,7 @@ A production-ready, multi-agent research assistant powered by **LangGraph**, **F
 - **Markdown Export** — Clean Markdown with YAML frontmatter
 
 ### 🎨 User Experience
-- **Premium Streamlit UI** — Dark theme with gradient styling
+- **Premium React + Vite UI** — Dark theme with neon-glowing animations and modern glassmorphism
 - **Progress tracking** — Real-time pipeline step visualization
 - **Execution logs** — Color-coded log viewer
 - **History viewer** — Browse and reload past research sessions
@@ -145,12 +145,14 @@ python -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 ### 5. Start the Frontend (new terminal)
 
 ```bash
-streamlit run frontend/app.py
+cd frontend
+npm install
+npm run dev
 ```
 
 ### 6. Open in Browser
 
-Navigate to `http://localhost:8501` and start researching!
+Navigate to `http://localhost:5173` and start researching!
 
 ---
 
