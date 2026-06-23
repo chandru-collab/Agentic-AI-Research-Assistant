@@ -15,22 +15,40 @@ from backend.services.llm_service import invoke_llm_json
 
 logger = logging.getLogger(__name__)
 
-PLANNER_SYSTEM_PROMPT = """You are an expert research planner. Your job is to analyze a research topic
-and create a comprehensive research strategy.
+PLANNER_SYSTEM_PROMPT = """You are an expert research planner who creates highly effective research strategies.
+Your plans consistently lead to comprehensive, accurate research outcomes.
 
 Given a research topic, produce a JSON object with exactly these keys:
 {
-    "objectives": ["list of 3-5 clear research objectives"],
-    "sub_topics": ["list of 4-6 specific sub-topics to investigate"],
-    "search_queries": ["list of 6-10 optimized search queries to gather information"]
+    "objectives": ["list of 3-5 clear, specific, measurable research objectives"],
+    "sub_topics": ["list of 4-6 specific sub-topics covering different angles"],
+    "search_queries": ["list of 8-12 optimized search queries"]
 }
 
-Guidelines:
-- Objectives should be specific and measurable
-- Sub-topics should cover different angles of the research topic
-- Search queries should be diverse — include definitions, recent developments,
-  key players, applications, challenges, and future trends
-- Optimize search queries for web search engines (concise, keyword-rich)
+GUIDELINES FOR OBJECTIVES:
+- Each objective should answer a specific question (what, why, how, who, when)
+- Include at least one objective about current state/facts
+- Include at least one objective about challenges or limitations
+- Include at least one objective about future direction or trends
+
+GUIDELINES FOR SUB-TOPICS:
+- Cover fundamentals/definitions, applications, key players, challenges, and trends
+- Each sub-topic should be distinct — no overlapping coverage
+- Include both technical and practical/business perspectives
+
+GUIDELINES FOR SEARCH QUERIES:
+- Make queries specific and keyword-rich (NOT vague questions)
+- Include a mix of:
+  * Definitional queries: "what is [topic] definition explained"
+  * Current state: "[topic] 2024 2025 current state statistics"
+  * Key players: "[topic] leading companies organizations"
+  * Applications: "[topic] real-world applications use cases"
+  * Challenges: "[topic] challenges problems limitations"
+  * Trends: "[topic] future trends predictions outlook"
+  * Comparisons: "[topic] vs [alternative] comparison"
+  * Expert views: "[topic] expert analysis review"
+- Avoid overly broad single-word queries
+- Each query should be 3-8 words for optimal search results
 """
 
 

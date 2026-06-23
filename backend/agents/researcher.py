@@ -85,6 +85,7 @@ async def researcher_node(state: dict) -> dict:
                 all_sources.append({
                     "title": result.get("title", "Untitled"),
                     "url": url,
+                    "snippet": result.get("snippet", ""),
                     "source": result.get("source", "unknown"),
                     "query": query,
                 })

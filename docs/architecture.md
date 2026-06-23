@@ -4,56 +4,56 @@
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                     Presentation Layer                     │
-│                                                           │
-│  ┌─────────────────────────────────────────────────────┐  │
-│  │                 Streamlit Frontend                   │  │
-│  │  ┌──────────┐ ┌──────────┐ ┌────────────────────┐  │  │
-│  │  │ Sidebar   │ │  Search  │ │  Results (Tabs)    │  │  │
-│  │  │ History   │ │  Input   │ │  Plan|Sources|     │  │  │
-│  │  │ Settings  │ │  Button  │ │  Insights|Summary| │  │  │
-│  │  │ Status    │ │          │ │  Report|Export     │  │  │
-│  │  └──────────┘ └──────────┘ └────────────────────┘  │  │
-│  └─────────────────────────────────────────────────────┘  │
-│                           │ HTTP/REST                      │
-│                           ↓                                │
-│  ┌─────────────────────────────────────────────────────┐  │
-│  │                  FastAPI Backend                     │  │
-│  │  /research  /history  /report/{id}  /export/*       │  │
-│  └─────────────────────────────────────────────────────┘  │
+│                     Presentation Layer                   │
+│                                                          │
+│  ┌─────────────────────────────────────────────────────┐ │
+│  │                 Streamlit Frontend                  │ │
+│  │  ┌──────────┐ ┌──────────┐ ┌────────────────────┐   │ │
+│  │  │ Sidebar  │ │  Search  │ │  Results (Tabs)    │   │ │
+│  │  │ History  │ │  Input   │ │  Plan|Sources|     │   │ │
+│  │  │ Setting  │ │  Button  │ │  Insights|Summary| │   │ │
+│  │  │ Status   │ │          │ │  Report|Export     │   │ │
+│  │  └──────────┘ └──────────┘ └────────────────────┘   │ │
+│  └─────────────────────────────────────────────────────┘ │
+│                           │ HTTP/REST                    │
+│                           ↓                              │
+│  ┌─────────────────────────────────────────────────────┐ │
+│  │                  FastAPI Backend                    │ │
+│  │  /research  /history  /report/{id}  /export/*       │ │
+│  └─────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────┘
                             │
                             ↓
 ┌──────────────────────────────────────────────────────────┐
-│                    Application Layer                      │
-│                                                           │
-│  ┌─────────────────────────────────────────────────────┐  │
-│  │              LangGraph StateGraph                    │  │
-│  │                                                      │  │
-│  │  START → [Planner] → [Researcher] → [Analyst]       │  │
-│  │       → [Summarizer] → [Reporter] → [Memory] → END │  │
-│  │                                                      │  │
-│  │  State: ResearchState (TypedDict)                    │  │
-│  │  Reducer: operator.add for logs accumulation         │  │
-│  └─────────────────────────────────────────────────────┘  │
+│                    Application Layer                     │
+│                                                          │
+│  ┌─────────────────────────────────────────────────────┐ │
+│  │              LangGraph StateGraph                   │ │
+│  │                                                     │ │
+│  │  START → [Planner] → [Researcher] → [Analyst]       │ │
+│  │       → [Summarizer] → [Reporter] → [Memory] → END  │ │
+│  │                                                     │ │
+│  │  State: ResearchState (TypedDict)                   │ │
+│  │  Reducer: operator.add for logs accumulation        │ │
+│  └─────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────┘
                             │
                             ↓
 ┌──────────────────────────────────────────────────────────┐
-│                   Infrastructure Layer                    │
-│                                                           │
-│  ┌──────────────┐ ┌──────────────┐ ┌─────────────────┐  │
-│  │  OpenRouter   │ │  DuckDuckGo  │ │   Wikipedia     │  │
-│  │  LLM API     │ │  Search API  │ │   API           │  │
-│  │              │ │              │ │                 │  │
-│  │  gemma-3-27b │ └──────────────┘ └─────────────────┘  │
+│                   Infrastructure Layer                   │
+│                                                          │
+│  ┌──────────────┐ ┌──────────────┐ ┌─────────────────┐   │
+│  │  OpenRouter  │ │  DuckDuckGo  │ │   Wikipedia     │   │
+│  │  LLM API     │ │  Search API  │ │   API           │   │
+│  │              │ │              │ │                 │   │
+│  │  gemma-3-27b │ └──────────────┘ └─────────────────┘   │
 │  │  nemotron-vl │                                        │
 │  └──────────────┘                                        │
-│                                                           │
-│  ┌──────────────┐ ┌──────────────┐ ┌─────────────────┐  │
-│  │  JSON Memory  │ │  PDF Export  │ │  MD Export      │  │
-│  │  (File-based) │ │  (fpdf2)    │ │  (File-based)   │  │
-│  └──────────────┘ └──────────────┘ └─────────────────┘  │
+│                                                          │
+│  ┌──────────────┐ ┌──────────────┐ ┌─────────────────┐   │
+│  │  JSON Memory │ │  PDF Export  │ │  MD Export      │   │
+│  │  (File-based)│ │  (fpdf2)     │ │  (File-based)   │   │
+│  └──────────────┘ └──────────────┘ └─────────────────┘   │
 └──────────────────────────────────────────────────────────┘
 ```
 
@@ -95,7 +95,7 @@ ResearchState {
 ```
 User                Streamlit          FastAPI           LangGraph
   │                    │                  │                  │
-  │─── Enter topic ──→│                  │                  │
+  │─── Enter topic ──→ │                  │                  │
   │                    │── POST /research→│                  │
   │                    │                  │── run_research()→│
   │                    │                  │                  │── planner_node()
