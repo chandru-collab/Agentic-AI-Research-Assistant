@@ -18,11 +18,10 @@ services:
         value: "false"
 
   # React Frontend Static Site (Frontend)
-  - type: web
+  - type: static
     name: research-frontend
-    env: static
     buildCommand: cd frontend && npm install && npm run build
-    publishPath: frontend/dist
+    staticPublishPath: frontend/dist
     envVars:
       - key: NODE_VERSION
         value: "20"
