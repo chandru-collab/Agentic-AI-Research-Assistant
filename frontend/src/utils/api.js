@@ -1,6 +1,10 @@
-const API_BASE_URL = import.meta.env.DEV 
+let apiBase = import.meta.env.VITE_API_BASE_URL || '';
+if (apiBase && !apiBase.startsWith('http://') && !apiBase.startsWith('https://')) {
+  apiBase = 'https://' + apiBase;
+}
+const API_BASE_URL = apiBase || (import.meta.env.DEV 
   ? 'http://127.0.0.1:8000' 
-  : '/api';
+  : '/api');
 
 /**
  * Handle fetch response and parse as JSON, throwing standard errors for status codes.

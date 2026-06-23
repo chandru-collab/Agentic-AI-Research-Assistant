@@ -32,7 +32,9 @@ class Settings:
 
     # Backend
     BACKEND_HOST: str = os.getenv("BACKEND_HOST", "0.0.0.0")
-    BACKEND_PORT: int = int(os.getenv("BACKEND_PORT", "8000"))
+    BACKEND_PORT: int = int(
+        os.getenv("PORT") or os.getenv("BACKEND_PORT") or "8000"
+    )
 
     # App
     APP_NAME: str = os.getenv("APP_NAME", "AI Research Assistant")
