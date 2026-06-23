@@ -41,3 +41,8 @@ coverage.xml
 
 # Misc
 *.log
+
+# Node
+node_modules/
+dist/
+
