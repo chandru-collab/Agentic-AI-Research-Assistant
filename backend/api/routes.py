@@ -36,6 +36,20 @@ router = APIRouter()
 
 
 # ──────────────────────────────────────────────
+# GET /
+# ──────────────────────────────────────────────
+
+@router.get("/")
+async def root_endpoint():
+    """Welcome root endpoint."""
+    return {
+        "message": "Welcome to the Agentic AI Research Assistant API",
+        "health": "/health",
+        "docs": "/docs"
+    }
+
+
+# ──────────────────────────────────────────────
 # POST /research
 # ──────────────────────────────────────────────
 
