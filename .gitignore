@@ -30,8 +30,8 @@ ENV/
 Thumbs.db
 
 # Project Generated
-reports/
-memory/
+/reports/
+/memory/
 
 # Testing
 .pytest_cache/
